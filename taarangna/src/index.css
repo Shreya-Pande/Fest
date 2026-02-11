@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+/* EVENTS PAGE LAYOUT */
+
+.events-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background image */
+.events-bg-image {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Dark gradient overlay */
+.events-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(10, 20, 40, 0.4),
+    rgba(0, 0, 0, 0.85)
+  );
+  z-index: 2;
+}
+
+/* Page content */
+.events-content {
+  position: relative;
+  z-index: 3;
+  padding: 6rem 3rem;
+  color: white;
+}
