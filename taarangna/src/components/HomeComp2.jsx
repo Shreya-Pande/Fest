@@ -2,27 +2,19 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./HomeComp2.css";
+import muni from "../assets/muni.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const emotions = [
-  { name: "Shringara", meaning: "Love", color: "hsl(350, 60%, 65%)" },
-  { name: "Hasya", meaning: "Joy", color: "hsl(45, 80%, 55%)" },
-  { name: "Karuna", meaning: "Compassion", color: "hsl(260, 20%, 65%)" },
-  { name: "Raudra", meaning: "Fury", color: "hsl(10, 70%, 55%)" },
-  { name: "Veera", meaning: "Courage", color: "hsl(40, 85%, 55%)" },
-  { name: "Bhayanaka", meaning: "Fear", color: "hsl(280, 30%, 60%)" },
-  { name: "Bibhatsa", meaning: "Disgust", color: "hsl(140, 40%, 50%)" },
-  { name: "Adbhuta", meaning: "Wonder", color: "hsl(170, 60%, 50%)" },
-  { name: "Shanta", meaning: "Peace", color: "hsl(220, 10%, 60%)" },
-];
-
+/* LEFT: Festival Text */
 const FestivalSection = () => {
   const ref = useRef(null);
 
   useEffect(() => {
+    const el = ref.current;
+
     gsap.fromTo(
-      ref.current,
+      el,
       { x: -200, opacity: 0 },
       {
         x: 0,
@@ -30,11 +22,14 @@ const FestivalSection = () => {
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: ref.current,
+          trigger: el,
           start: "top 80%",
-        },
+          toggleActions: "play none play reset"
+        }
       }
     );
+
+    ScrollTrigger.refresh();
   }, []);
 
   return (
@@ -58,12 +53,15 @@ const FestivalSection = () => {
   );
 };
 
-const NavrasaSection = () => {
+/* RIGHT: Muni Image */
+const MuniSection = () => {
   const ref = useRef(null);
 
   useEffect(() => {
+    const el = ref.current;
+
     gsap.fromTo(
-      ref.current,
+      el,
       { x: 200, opacity: 0 },
       {
         x: 0,
@@ -71,33 +69,19 @@ const NavrasaSection = () => {
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: ref.current,
+          trigger: el,
           start: "top 80%",
-        },
+          toggleActions: "play none play reset"
+        }
       }
     );
+
+    ScrollTrigger.refresh();
   }, []);
 
   return (
-    <div ref={ref} className="navrasa">
-      <h3 className="navrasa__title">The Navrasa</h3>
-
-      <div className="navrasa__grid">
-        {emotions.map((e) => (
-          <div key={e.name} className="navrasa__item">
-            <div
-              className="navrasa__dot"
-              style={{ backgroundColor: e.color }}
-            />
-            <span className="navrasa__name">{e.name}</span>
-            <span className="navrasa__meaning">{e.meaning}</span>
-          </div>
-        ))}
-      </div>
-
-      <div className="navrasa__footer">
-        <p>Each rasa colors the experience differently</p>
-      </div>
+    <div ref={ref} className="muni">
+      <img src={muni} alt="Muni Illustration" className="muni__image" />
     </div>
   );
 };
@@ -107,7 +91,7 @@ export default function HomeComp2() {
     <section className="homecomp2">
       <div className="homecomp2__container">
         <FestivalSection />
-        <NavrasaSection />
+        <MuniSection />
       </div>
     </section>
   );

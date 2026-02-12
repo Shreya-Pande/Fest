@@ -1,24 +1,24 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./HomeLanding.css";
 import StarField from "./StarField";
+import "../styles/ParallaxHero.css";
 import mountainsNebula from "../assets/mountains-nebula.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HomeLanding() {
+export default function ParallaxHero() {
   const containerRef = useRef(null);
-  const bgRef = useRef(null);
+  const nebulaRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
-  const scrollRef = useRef(null);
+  const scrollTextRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
 
       // Background parallax
-      gsap.to(bgRef.current, {
+      gsap.to(nebulaRef.current, {
         y: -200,
         scale: 1.1,
         scrollTrigger: {
@@ -29,9 +29,9 @@ export default function HomeLanding() {
         },
       });
 
-      // Title fade
+      // Title fade on scroll
       gsap.to(titleRef.current, {
-        y: -250,
+        y: -300,
         opacity: 0,
         scrollTrigger: {
           trigger: containerRef.current,
@@ -53,8 +53,8 @@ export default function HomeLanding() {
         },
       });
 
-      // Scroll text fade
-      gsap.to(scrollRef.current, {
+      // Scroll indicator fade
+      gsap.to(scrollTextRef.current, {
         opacity: 0,
         scrollTrigger: {
           trigger: containerRef.current,
@@ -64,46 +64,58 @@ export default function HomeLanding() {
         },
       });
 
+      // Entrance animation
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 2 }
+      );
+
+      gsap.fromTo(
+        subtitleRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1.5, delay: 0.8 }
+      );
+
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="home-landing">
-
-      <div className="landing-sticky">
+    <div ref={containerRef} className="hero-container">
+      
+      <div className="hero-sticky">
 
         {/* Background */}
         <div
-          ref={bgRef}
-          className="landing-background"
+          ref={nebulaRef}
+          className="hero-background"
           style={{ backgroundImage: `url(${mountainsNebula})` }}
         />
 
-        {/* Starfield */}
-        <div className="landing-stars">
+        {/* Stars */}
+        <div className="hero-stars">
           <StarField />
         </div>
 
-        {/* Content */}
-        <div className="landing-content">
-          <h1 ref={titleRef} className="landing-title">
-            ETHEREA
-          </h1>
-
-          <p ref={subtitleRef} className="landing-subtitle">
-            Where the Navrasa transcend
-          </p>
+        {/* Title */}
+        <div ref={titleRef} className="hero-title">
+          ETHEREA
         </div>
 
-        {/* Scroll Indicator */}
-        <div ref={scrollRef} className="landing-scroll">
+        {/* Subtitle */}
+        <div ref={subtitleRef} className="hero-subtitle">
+          Where the Navrasa transcend
+        </div>
+
+        {/* Scroll indicator */}
+        <div ref={scrollTextRef} className="hero-scroll">
           <span>SCROLL TO EXPLORE</span>
           <div className="scroll-line"></div>
         </div>
 
       </div>
-    </section>
+    </div>
   );
 }

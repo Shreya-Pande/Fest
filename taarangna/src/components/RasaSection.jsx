@@ -124,7 +124,7 @@ export default function RasaComponent() {
                 <p className="rasa-why-title">Why {selected.rasa}?</p>
                 <p className="rasa-why-text">{selected.whyRasa}</p>
               </div>
-              <button className="rasa-register-btn">Register Now</button>
+              <button className="rasa-register-btn">Coming Soon</button>
             </div>
           </div>
         </div>

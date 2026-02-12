@@ -55,3 +55,16 @@
 
   animation: silverPulse 3.5s ease-in-out infinite;
 }
+
+
+.events-heading {
+  position: absolute;
+  top: 5%;       /* move vertically */
+  left: 27%;       /* moves into the black space */
+  width: 620px;   /* adjust size */
+  height: 400px;
+
+  z-index: 5;     /* above masks */
+  pointer-events: none;
+}
+

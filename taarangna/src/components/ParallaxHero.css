@@ -1,20 +1,18 @@
-.home-landing {
+.hero-container {
   position: relative;
-  height: 100vh;   /* reduce scroll space */
+  height: 200vh; /* important for parallax */
   width: 100%;
-  overflow: hidden;
 }
 
-
-.landing-sticky {
+.hero-sticky {
   position: sticky;
   top: 0;
   height: 100vh;
   overflow: hidden;
 }
 
-/* Background */
-.landing-background {
+/* Background image */
+.hero-background {
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -23,49 +21,47 @@
   z-index: 1;
 }
 
-/* Starfield layer */
-.landing-stars {
+/* Star layer */
+.hero-stars {
   position: absolute;
   inset: 0;
   z-index: 2;
 }
 
-/* Center content */
-.landing-content {
+/* Title */
+.hero-title {
   position: absolute;
-  top: 45%;
+  top: 40%;
   width: 100%;
   text-align: center;
-  transform: translateY(-50%);
-  z-index: 5;
-  color: rgb(219, 240, 124);
-}
-
-/* Title */
-.landing-title {
   font-size: 80px;
   letter-spacing: 0.3em;
+  color: white;
+  z-index: 5;
   font-family: Georgia, serif;
-  margin: 0;
 }
 
 /* Subtitle */
-.landing-subtitle {
-  margin-top: 16px;
+.hero-subtitle {
+  position: absolute;
+  top: 55%;
+  width: 100%;
+  text-align: center;
   font-size: 22px;
+  color: rgba(255,255,255,0.8);
   font-style: italic;
-  opacity: 0.85;
+  z-index: 5;
 }
 
 /* Scroll indicator */
-.landing-scroll {
+.hero-scroll {
   position: absolute;
   bottom: 40px;
   width: 100%;
   text-align: center;
   color: rgba(255,255,255,0.6);
-  letter-spacing: 0.2em;
   z-index: 6;
+  letter-spacing: 0.2em;
 }
 
 .scroll-line {
