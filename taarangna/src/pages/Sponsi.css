@@ -1,0 +1,158 @@
+.sponsi-container {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+    color: #c9a763;
+    /* Light gold heading color */
+    font-family: 'Times New Roman', Times, serif;
+    /* Fallback for the elegant serif shown */
+}
+
+/* Title Styling */
+.sponsi-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8vh;
+    text-align: center;
+}
+
+.sponsi-subtitle {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.sponsi-main-heading-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sponsi-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Decorative flourishes mimicking the design */
+.sponsi-decorative-line {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background-image: radial-gradient(circle, #c9a763 20%, transparent 20%);
+    background-size: 10px 10px;
+    background-position: center;
+    background-repeat: repeat-x;
+    opacity: 0.7;
+}
+
+.sponsi-decorative-line.left {
+    mask-image: linear-gradient(to left, black, transparent);
+    -webkit-mask-image: linear-gradient(to left, black, transparent);
+}
+
+.sponsi-decorative-line.right {
+    mask-image: linear-gradient(to right, black, transparent);
+    -webkit-mask-image: linear-gradient(to right, black, transparent);
+}
+
+.sponsi-decorative-underline {
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c9a763, transparent);
+    margin-top: 15px;
+    position: relative;
+}
+
+.sponsi-decorative-underline::after {
+    content: "♦";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #c9a763;
+    font-size: 1rem;
+}
+
+/* Logos Grid Layout */
+.sponsi-logos-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.sponsi-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+}
+
+.sponsi-logo {
+    max-height: 80px;
+    max-width: 180px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sponsi-logo:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+}
+
+/* Responsive Scaling */
+@media (max-width: 900px) {
+    .sponsi-title {
+        font-size: 2.5rem;
+    }
+
+    .sponsi-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .sponsi-logo {
+        max-height: 60px;
+        max-width: 130px;
+    }
+
+    .sponsi-row {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sponsi-title {
+        font-size: 2rem;
+    }
+
+    .sponsi-subtitle {
+        font-size: 1rem;
+    }
+
+    .sponsi-logo {
+        max-height: 45px;
+        max-width: 100px;
+    }
+
+    .sponsi-row {
+        gap: 20px;
+    }
+}

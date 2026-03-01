@@ -39,11 +39,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
 import { useEffect, useRef } from "react";
 import HeroSection from "../components/HeroSection";
 import RasaSection from "../components/RasaSection";
 import Galaxy from "../components/Galaxy";
-import bg from "../assets/Background_Events.png";
+import bg from "../assets/Background_Events.jpg";
 import "./Events.css";
 
 export default function Events() {
