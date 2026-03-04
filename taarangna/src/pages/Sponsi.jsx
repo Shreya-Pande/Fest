@@ -92,8 +92,22 @@ export default function Sponsi() {
                 </div>
             </div>
 
+            {/* Coming Soon Section */}
+            <div className="sponsi-coming-soon" style={{ textAlign: "center", marginTop: "2rem" }}>
+                <h2 style={{
+                    color: "#dfb873",
+                    fontFamily: "Cinzel, serif",
+                    fontSize: "2rem",
+                    letterSpacing: "4px",
+                    textShadow: "0 2px 10px rgba(223, 184, 115, 0.4)"
+                }}>
+                    Coming Soon
+                </h2>
+            </div>
+
             {/* Cards Grid Section (Reveals Below on Scroll) */}
             <div className="sponsi-cards-section" ref={gridRef}>
+                {/* 
                 <div className="sponsi-logos-grid">
                     {sponsors.map((sponsor, index) => (
                         <div
@@ -116,6 +130,7 @@ export default function Sponsi() {
                         </div>
                     ))}
                 </div>
+                */}
             </div>
         </div>
     );
