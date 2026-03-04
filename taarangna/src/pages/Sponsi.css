@@ -1,17 +1,32 @@
 .sponsi-container {
-    min-height: 100vh;
     width: 100%;
+    /* Keep background fixed so that the image stays in place while we scroll through sections */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    font-family: 'Cinzel', 'Playfair Display', 'Didot', 'Times New Roman', serif;
+}
+
+/* Landing Section */
+.sponsi-landing-section {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top: 5vh;
-    color: #c9a763;
-    /* Light gold heading color */
-    font-family: 'Times New Roman', Times, serif;
-    /* Fallback for the elegant serif shown */
+    width: 100%;
+}
+
+/* Lower Cards Section */
+.sponsi-cards-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Title Styling */
@@ -19,140 +34,188 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 8vh;
     text-align: center;
 }
 
-.sponsi-subtitle {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-    font-weight: 500;
-    margin: 0 0 5px 0;
-    opacity: 0.8;
+.sponsi-title {
+    font-size: 3.2rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin: 0;
+    color: #dfb873;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
 }
 
-.sponsi-main-heading-container {
+/* Decorative underline */
+.sponsi-decorative-underline {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
     gap: 15px;
 }
 
-.sponsi-title {
-    font-size: 3.5rem;
-    font-weight: 600;
-    letter-spacing: 3px;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Decorative flourishes mimicking the design */
 .sponsi-decorative-line {
-    display: block;
-    width: 40px;
-    height: 20px;
-    background-image: radial-gradient(circle, #c9a763 20%, transparent 20%);
-    background-size: 10px 10px;
-    background-position: center;
-    background-repeat: repeat-x;
-    opacity: 0.7;
+    height: 1px;
+    width: 150px;
+    background: #dfb873;
 }
 
 .sponsi-decorative-line.left {
-    mask-image: linear-gradient(to left, black, transparent);
-    -webkit-mask-image: linear-gradient(to left, black, transparent);
+    background: linear-gradient(to right, transparent, rgba(223, 184, 115, 0.8));
 }
 
 .sponsi-decorative-line.right {
-    mask-image: linear-gradient(to right, black, transparent);
-    -webkit-mask-image: linear-gradient(to right, black, transparent);
+    background: linear-gradient(to left, transparent, rgba(223, 184, 115, 0.8));
 }
 
-.sponsi-decorative-underline {
-    width: 150px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #c9a763, transparent);
-    margin-top: 15px;
-    position: relative;
-}
-
-.sponsi-decorative-underline::after {
-    content: "♦";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #c9a763;
-    font-size: 1rem;
+.sponsi-decorative-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 /* Logos Grid Layout */
 .sponsi-logos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+.sponsi-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(223, 184, 115, 0.3);
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5vh;
-    width: 90%;
-    max-width: 1200px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    height: 180px;
 }
 
-.sponsi-row {
+.sponsi-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(223, 184, 115, 0.2);
+}
+
+.sponsi-card-logo-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
     width: 100%;
+    padding: 15px;
 }
 
 .sponsi-logo {
     max-height: 80px;
-    max-width: 180px;
+    max-width: 120px;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
-    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
 }
 
-.sponsi-logo:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+.sponsi-card-footer {
+    width: 60%;
+    position: relative;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: rgba(223, 184, 115, 0.8);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.sponsi-card-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(223, 184, 115, 0.5), transparent);
+}
+
+.sponsi-card-symbol {
+    font-size: 0.7rem;
+    color: rgba(223, 184, 115, 0.7);
+}
+
+.sponsi-card-text {
+    font-family: Arial, sans-serif;
+    font-weight: 600;
 }
 
 /* Responsive Scaling */
+@media (max-width: 1100px) {
+    .sponsi-logos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 900px) {
+
     .sponsi-title {
         font-size: 2.5rem;
     }
 
-    .sponsi-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .sponsi-logo {
-        max-height: 60px;
-        max-width: 130px;
-    }
-
-    .sponsi-row {
-        gap: 30px;
+    .sponsi-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
+
     .sponsi-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
-    .sponsi-subtitle {
-        font-size: 1rem;
+    .sponsi-logos-grid {
+        grid-template-columns: 1fr;
     }
 
-    .sponsi-logo {
-        max-height: 45px;
-        max-width: 100px;
+    .sponsi-decorative-line {
+        width: 80px;
     }
+}
 
-    .sponsi-row {
-        gap: 20px;
-    }
+/* Scroll Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.fade-in-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    /* Transition inherited below but overridden on hover */
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fade-in-card.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Override transform rule for hover specifically when visible */
+.fade-in-card.visible:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(223, 184, 115, 0.2);
 }

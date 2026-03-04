@@ -14,23 +14,20 @@ import vid9 from "../assets/Untitled design (13).mp4";
 const videos = [vid1, vid2, vid3, vid4, vid5, vid6, vid7, vid8, vid9];
 
 export default function HeroSection() {
-  // Define the exact static positions based on the honeycomb image layout
+  // --- CHANGE HEXAGON POSITIONS HERE ---
+  // "left" is the horizontal position (vw: viewport width). Use negative values to move left, positive to move right.
+  // "top" is the vertical position (vh: viewport height). Use negative values to move up, positive to move down.
+  // "vid" specifies which video from the `videos` array to play.
   const honeycombPositions = [
-    // Left cluster
-    { id: 1, type: "video", left: -42, top: 0, vid: 0 },
-    { id: 2, type: "plain", left: -28, top: -25 },
-    { id: 3, type: "video", left: -28, top: 25, vid: 1 },
-
-    // Middle ring
-    { id: 4, type: "plain", left: -14, top: -50 },
-    { id: 5, type: "plain", left: -14, top: 50 },
-    { id: 6, type: "video", left: 14, top: -50, vid: 2 },
-    { id: 7, type: "video", left: 14, top: 50, vid: 3 },
-
-    // Right cluster
-    { id: 8, type: "video", left: 28, top: -25, vid: 4 },
-    { id: 9, type: "plain", left: 28, top: 25 },
-    { id: 10, type: "plain", left: 42, top: 0 },
+    { id: 1, type: "video", vid: 0, left: 0, top: -36 },         // Top Center
+    { id: 2, type: "video", vid: 1, left: 20.57, top: -27.58 },  // Top Right
+    { id: 3, type: "video", vid: 2, left: 31.51, top: -6.25 },   // Right Top
+    { id: 4, type: "video", vid: 3, left: 27.71, top: 18.00 },   // Right Bottom
+    { id: 5, type: "video", vid: 4, left: 10.95, top: 33.83 },   // Bottom Right
+    { id: 6, type: "video", vid: 5, left: -10.95, top: 33.83 },  // Bottom Left
+    { id: 7, type: "video", vid: 6, left: -27.71, top: 18.00 },  // Left Bottom
+    { id: 8, type: "video", vid: 7, left: -31.51, top: -6.25 },  // Left Top
+    { id: 9, type: "video", vid: 8, left: -20.57, top: -27.58 }, // Top Left
   ];
 
   return (
