@@ -6,7 +6,7 @@ import Sponsi from "./pages/Sponsi";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Fest">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
